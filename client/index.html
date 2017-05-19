@@ -4,15 +4,21 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </head>
   <body ng-app="heresJohnny">
     <div ng-controller="hjController as hj">
-      {{hj.test}}
-      <input type="number" ng-model="hj.numberOfSentences">
-      <input type="radio" ng-model="hj.simpsons" name="version" ng-value="false">The Shining version</select>
-      <input type="radio" ng-model="hj.simpsons" name="version" ng-value="true">The Simpsons version</select>
-      <input type="submit" ng-click="hj.getSentence()">
-      <div>{{hj.result}}</div>
+      <img ng-show="hj.choice === 'shining'" default src="http://stream1.gifsoup.com/view7/4658387/here-s-johnny-o.gif" />
+      <img ng-show="hj.choice === 'simpsons'" src="http://file2.instiz.net/data/file/20150120/f/0/a/f0a238928f61bfd829e3f5f5c3467004.gif" />
+      <form>
+        <input type="number" ng-model="hj.numberOfSentences" placeholder="number of sentences">
+        <input type="radio" ng-model="hj.choice" name="version" value="shining">The Shining version</select>
+        <input type="radio" ng-model="hj.choice" name="version" value="simpsons">The Simpsons version</select>
+        <input type="submit" ng-click="hj.getSentence()" value="Here's Johnny!">
+      </form>
+      <button ng-show="hj.text[hj.choice]" id="copyBtn">Copy</button>
+      <div id="result">{{hj.text[hj.choice]}}</div>
+
     </div>
     <script src="./heresJohnny/hjFactory.js"></script>
     <script src="./heresJohnny/hjController.js"></script>
