@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+  </head>
+  <body ng-app="heresJohnny">
+    <div ng-controller="hjController as hj">
+      {{hj.test}}
+      <input type="number" ng-model="hj.numberOfSentences">
+      <input type="radio" ng-model="hj.simpsons" name="version" ng-value="false">The Shining version</select>
+      <input type="radio" ng-model="hj.simpsons" name="version" ng-value="true">The Simpsons version</select>
+      <input type="submit" ng-click="hj.getSentence()">
+      <div>{{hj.result}}</div>
+    </div>
+    <script src="./heresJohnny/hjFactory.js"></script>
+    <script src="./heresJohnny/hjController.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
