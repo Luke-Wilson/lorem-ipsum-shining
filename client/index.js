@@ -1,4 +1,5 @@
 angular.module('heresJohnny', [
+  'ngMaterial',
   'heresJohnny.hjController',
   'heresJohnny.hjFactory'
 ]);

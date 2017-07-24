@@ -3,26 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Animate CSS -->
     <link rel="stylesheet" href="./styles/vendors/animate.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/html" href="scripts/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="./styles/site.css">
+    <!-- Load Angular -->
+    <script src="scripts/angular/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   </head>
   <body ng-app="heresJohnny">
-    <h1 class="animated bounce">Here's Johnny!</h1>
-    <div ng-controller="hjController as hj">
-      <img ng-show="hj.choice === 'shining'" default src="http://stream1.gifsoup.com/view7/4658387/here-s-johnny-o.gif" />
-      <img ng-show="hj.choice === 'simpsons'" src="http://file2.instiz.net/data/file/20150120/f/0/a/f0a238928f61bfd829e3f5f5c3467004.gif" />
-      <form>
-        <label for="">How many sentences would you like?</label>
-        <input name="" type="number" ng-model="hj.numberOfSentences" placeholder="number of sentences">
-        <input name="version" type="radio" ng-model="hj.choice" value="shining">The Shining version</select>
-        <input name="version" type="radio" ng-model="hj.choice" value="simpsons">The Simpsons version</select>
-        <input type="submit" ng-click="hj.getSentence()" value="Here's Johnny!">
-      </form>
-      <button class="animated bounce" ng-show="hj.text[hj.choice]" id="copyBtn">Copy</button>
-      <div id="result">{{hj.text[hj.choice]}}</div>
+    <div class="main" ng-controller="hjController as hj">
+      <div class="page-header">
+        <h1 class="animated bounce">Here's Johnny!</h1>
+      </div>
+      <!-- Hero image -->
+      <div class="hero-container">
+        <img ng-show="hj.choice === 'shining'" default src="http://stream1.gifsoup.com/view7/4658387/here-s-johnny-o.gif" />
+        <img ng-show="hj.choice === 'simpsons'" src="http://file2.instiz.net/data/file/20150120/f/0/a/f0a238928f61bfd829e3f5f5c3467004.gif" />
+      </div>
+      <div>
+        <button
+          class="btn btn-primary btn-lg"
+          ng-class="hj.choice === 'shining' ? 'active' : 'inactive'"
+          ng-click="hj.setChoice('shining')">The Shining version</button>
+        <button
+          class="btn btn-primary btn-lg"
+          ng-class="hj.choice === 'simpsons' ? 'active' : 'inactive'"
+          ng-click="hj.setChoice('simpsons')">The Simpsons version</button>
+      </div>
+      <div class="tintbox">
+        <h2>How many sentences would you like?</h2>
+        <div>
+          <form>
+            <input name="" type="number" ng-model="hj.numberOfSentences" placeholder="number of sentences">
+            <input class="btn btn-default" type="submit" ng-click="hj.getSentence()" value="Here's {{hj.johnny}}!">
+          </form>
+        </div>
+        <button class="animated bounce" ng-show="hj.text[hj.choice]" id="copyBtn">Copy</button>
+        <div id="result">{{hj.text[hj.choice]}}</div>
+      </div>
 
     </div>
+    <!-- Angular dependencies -->
+    <script src="scripts/angular-animate/angular-animate.js"></script>
+    <script src="scripts/angular-aria/angular-aria.min.js"></script>
+    <script src="scripts/angular-material/angular-material.min.js"></script>
+    <!-- Angular modules -->
     <script src="./heresJohnny/hjFactory.js"></script>
     <script src="./heresJohnny/hjController.js"></script>
     <script src="./index.js"></script>

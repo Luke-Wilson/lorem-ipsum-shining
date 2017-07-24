@@ -5,6 +5,12 @@ angular.module('heresJohnny.hjController', [])
   hj.text = {}
   hj.text.simpsons = '';
   hj.text.shining = '';
+  hj.johnny = 'Johnny';
+
+  hj.setChoice = (word) => {
+    hj.johnny = word === 'simpsons' ? 'David Letterman' : 'Johnny';
+    hj.choice = word;
+  }
 
   hj.getSentence = () => {
     console.log('getting sentence');
