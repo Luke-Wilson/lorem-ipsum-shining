@@ -12,7 +12,7 @@
   z-index: 2;
 }
 
-body {
+.body-wrapper {
   height: 100vh;
   font-family: 'Heebo', sans-serif;
 }

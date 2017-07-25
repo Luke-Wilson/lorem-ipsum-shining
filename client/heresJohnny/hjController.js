@@ -16,4 +16,8 @@ angular.module('heresJohnny.hjController', [])
     console.log('getting sentence');
     hj.text = hjFactory.getSentence(hj.numberOfSentences)
   }
+
+  hj.copy = () => {
+    copyToClipboard(document.getElementById('result'));
+  }
 })
