@@ -30,8 +30,9 @@ body {
 
 h1 {
   color: black;
+  font-family: 'Frijole', cursive;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 100px;
 }
 
 .hero-container {
@@ -49,6 +50,10 @@ input {
   max-width: 80vw;
   font-size: 18px;
   color: white;
+}
+
+#copyBtn {
+  margin: 10px;  
 }
 
 .img {
