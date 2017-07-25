@@ -15,7 +15,7 @@ angular.module('heresJohnny.hjFactory', [])
 
   var randomizer = function(sentence) {
     var sentenceArr = sentence.split(' ');
-    var typos = Math.floor(Math.random() * 4);
+    var typos = Math.floor(Math.random() * 3);
 
     var add, word;
     for (var i = 0; i < typos; i++) {
